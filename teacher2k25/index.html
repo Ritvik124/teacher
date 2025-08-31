@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Teachers' Day 2K25 • Information Technology Department</title>
+  <meta name="description" content="Teachers' Day 2K25 celebration page for the Information Technology Department with coordinator list and event schedule." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0f172a;           /* slate-900 */
+      --card: #111827;         /* gray-900 */
+      --muted: #9ca3af;        /* gray-400 */
+      --text: #e5e7eb;         /* gray-200 */
+      --brand: #22c55e;        /* green-500 */
+      --brand-600:#16a34a;     /* green-600 */
+      --ring: rgba(34,197,94,0.3);
+      --shadow: 0 10px 30px rgba(0,0,0,.4);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 1200px at 90% -10%, rgba(34,197,94,.07), transparent 60%),
+                  radial-gradient(800px 800px at 0% 100%, rgba(34,197,94,.06), transparent 60%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+    .wrap{max-width:1100px; margin:0 auto; padding:28px 16px 80px}
+    header{
+      display:grid; gap:14px; text-align:center; margin:24px 0 18px;
+    }
+    .badge{display:inline-flex; align-items:center; gap:8px; padding:6px 12px; border-radius:999px; background:rgba(34,197,94,.12); color:#bbf7d0; border:1px solid rgba(34,197,94,.35); font-weight:600; font-size:13px; letter-spacing:.3px}
+    h1{font-size:clamp(28px, 4vw, 48px); line-height:1.08; margin:6px 0 8px; font-weight:800}
+    .sub{color:var(--muted); font-size:clamp(14px, 2.2vw, 18px)}
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      border:1px solid rgba(255,255,255,.08); border-radius:var(--radius);
+      box-shadow:var(--shadow); overflow:hidden;
+    }
+    .cta-row{display:flex; justify-content:center; gap:12px; margin-top:12px}
+    .btn{cursor:pointer; border:1px solid rgba(255,255,255,.14); background:#111827; color:var(--text); padding:10px 14px; border-radius:12px; font-weight:600}
+    .btn.brand{background:linear-gradient(90deg, var(--brand), var(--brand-600)); border-color:transparent; color:#052e16}
+    .btn:hover{transform:translateY(-1px)}
+
+    /* Tabs */
+    .tabs{margin-top:22px}
+    .tablist{display:flex; gap:8px; background:#0b1220; padding:8px; border-radius:14px; border:1px solid rgba(255,255,255,.08)}
+    .tab{
+      appearance:none; border:none; background:transparent; color:var(--muted); font-weight:700; padding:12px 16px; border-radius:12px; cursor:pointer;
+    }
+    .tab[aria-selected="true"]{background:rgba(34,197,94,.15); color:#dcfce7; outline:2px solid var(--ring)}
+    .tabpanel{display:none; padding:18px}
+    .tabpanel.active{display:block}
+
+    /* Coordinator grid */
+    .grid{display:grid; gap:14px; grid-template-columns: repeat( auto-fit, minmax(240px, 1fr) ); margin-top:8px}
+    .person {
+    padding:16px;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:14px;
+    background:#0b1220;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    word-wrap: break-word;       /* breaks long words */
+    overflow-wrap: break-word;   /* modern alternative */
+    word-break: break-word;      /* extra fallback */
+    }
+
+    .person:hover {
+    transform: translateY(-6px); /* lift effect */
+    box-shadow: 0 12px 24px rgba(0,0,0,0.5),
+                0 0 12px rgba(34,197,94,0.3); /* glow */
+    border-color: rgba(34,197,94,0.6);        /* green border highlight */
+    }
+
+    .person h3{margin:0 0 4px; font-size:18px}
+    .tag{display:inline-block; padding:4px 8px; border-radius:999px; font-size:12px; background:rgba(34,197,94,.12); color:#86efac; border:1px solid rgba(34,197,94,.35)}
+    .muted{color:var(--muted); font-size:14px}
+
+    /* Table */
+    table{width:100%; border-collapse:separate; border-spacing:0; margin-top:10px; background:#0b1220; border:1px solid rgba(255,255,255,.08); border-radius:14px; overflow:hidden}
+    thead th{font-size:13px; text-transform:uppercase; letter-spacing:.08em; color:#a3e635; text-align:left; padding:12px 14px; background:#0f172a}
+    tbody td{padding:12px 14px; border-top:1px solid rgba(255,255,255,.06)}
+    tbody tr:hover{background:#0e1a2d}
+
+    /* Footer */
+    footer{margin-top:28px; color:var(--muted); text-align:center}
+
+    /* Utilities */
+    .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}
+    .spacer{height:18px}
+
+    /* Print */
+    @media print{
+      body{background:white; color:#111827}
+      .card, .tablist, .person, table{box-shadow:none; border-color:#e5e7eb}
+      .btn, .cta-row{display:none !important}
+      .tab[aria-selected="true"] + .tabpanel{display:block}
+      .tabpanel{display:block}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="card" style="padding:22px 18px">
+      <div class="badge" aria-label="Teachers' Day 2025 badge">🎓 Teachers' Day • 4 September 2025</div>
+      <h1>Teacher's Day 2K25 <br>Department of Information Technology BCREC</h1>
+      <p class="sub">Celebrating our mentors with gratitude, joy, and a dash of geeky fun ✨</p>
+      <div class="cta-row">
+        <button class="btn brand" onclick="document.getElementById('tabs').scrollIntoView({behavior:'smooth'})">View Details</button>
+        <button class="btn" onclick="window.print()">Print / Save as PDF</button>
+      </div>
+    </header>
+
+    <section id="tabs" class="tabs">
+      <div class="tablist" role="tablist" aria-label="Teachers' Day sections">
+        <button class="tab" role="tab" aria-selected="true" aria-controls="panel-coords" id="tab-coords">1. Coordinator List</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-events" id="tab-events">2. Event List</button>
+      </div>
+
+      <!-- Coordinator Panel -->
+      <div id="panel-coords" class="tabpanel active card" role="tabpanel" aria-labelledby="tab-coords" tabindex="0">
+        <h2 style="margin:0 0 6px">Coordinator Team</h2>
+        <p class="muted">Core team for the IT Department Teachers' Day 2K25 celebration.</p>
+        <div class="grid" aria-label="Coordinator cards">
+          <article class="person" aria-label="Overall Coordinator">
+            <h3>Ritvik Raj</h3>
+            <span class="tag"> Coordinator</span>
+            <p class="muted">Email:ritvikraj1234567@gmail.com<br/>Phone:9097106894</p>
+          </article>
+          <article class="person" aria-label="Faculty Co-Lead">
+            <h3>Ritesh Kumar Mahato</h3>
+            <span class="tag">Coordinator</span>
+            <p class="muted">Email:riteshkumarmahato8@gmail.com<br/>Phone:9060861300</p>
+          </article>
+          <article class="person" aria-label="Student Lead, Curation">
+            <h3>Manisha Banerjee</h3>
+            <span class="tag">Girl Coordinator</span>
+            <p class="muted">Email:manisha123@gmail.com<br/>Phone:8391915172</p>
+          </article>
+          <article class="person" aria-label="Logistics & Stage">
+            <h3>Roshan Kumar Yadav</h3>
+            <span class="tag">Finanace Coordinator</span>
+            <p class="muted">Email:roshanyadav24slg@gmail.com<br/>Phone:9800384432</p>
+          </article>
+          <article class="person" aria-label="Student Lead, Curation">
+            <h3>Debjyoti Dey</h3>
+            <span class="tag">Cultural Coordinator</span>
+            <p class="muted">Email:debjyotidey127@gmail.com<br/>Phone:8331645172</p>
+          </article>
+            <!-- <h3>Aditya Mehta</h3>
+            <span class="tag">Hospitality</span>
+            <p class="muted">Email: aditya.mehta@college.edu<br/>Phone: +91-98XXXXXX05</p>
+          </article>
+          <article class="person" aria-label="Design & Media">
+            <h3>Neha Gupta</h3>
+            <span class="tag">Design & Media</span>
+            <p class="muted">Email: neha.gupta@college.edu<br/>Phone: +91-98XXXXXX06</p> -->
+          </article>
+        </div>
+
+        <div class="spacer"></div>
+        <h3 style="margin:6px 0 0">Extended Coordinator List</h3>
+        <table aria-label="Coordinator table">
+          <thead>
+            <tr><th>Name</th><th>Role</th><th>Contact</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Abhijeet Kumar</td><td>Tresurer</td><td>harshita.j@college.edu • +91-6325147896</td></tr>
+           
+            <tr><td>Ankit Suman</td><td>Finanace</td><td>ankitsuman227@gmail.com • +91-9878459612</td></tr>
+            <tr><td>Dhiraj Kumar Saha</td><td>Finanace</td><td>dhirajkumarsaha@gmail.com • +91-9845123678</td></tr>
+            <tr><td>Anurag Singh</td><td>Food Distribution</td><td>anuragsingh145@gmail.com • +91-9845783678</td></tr>
+            <tr><td>Rezwana Khan Choudhary</td><td>Banner Invitation</td><td>khanrizwana123@gmail.com • +91-9845745678</td></tr>
+            <tr><td>Ritvik Jr.</td><td>Banner Invitaion</td><td>ritvikkr34@gmail.com • +91-9845823678</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Event Panel -->
+      <div id="panel-events" class="tabpanel card" role="tabpanel" aria-labelledby="tab-events" tabindex="0">
+        <h2 style="margin:0 0 6px">Event Schedule</h2>
+        <p class="muted">Venue: IT Auditorium • Date: 4 Sept 2025 (Thursday)</p>
+        <table aria-label="Event schedule table">
+          <thead>
+            <tr><th style="width:140px">Time</th><th>Event</th><th>In‑Charge</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>SLOT-1</td><td>Welcome Song</td><td>3 minutes</td><td>Entry of Teachers</td></tr>
+            <tr><td>SLOT-2</td><td>Welcome & Lamp Lighting Ceremony</td><td>3 minutes</td><td>With Saraswati Vandana</td></tr>
+            <tr><td>SLOT-3</td><td>Welcome Speech</td><td>3 minutes</td><td>Shahnoor Irshad (2nd Year)</td></tr>
+            <tr><td>SLOT-4</td><td>HOD Speech</td><td>4 minutes</td><td>Head of Department</td></tr>
+            <tr><td>SLOT-5</td><td>Guru Vandana Fusion Dance</td><td>4.5 minutes</td><td>Supriti Bhattacharya</td></tr>
+            <tr><td>SLOT-6</td><td>Bengali Recitation</td><td>3 minutes</td><td>Shipra Saha (2nd Year)</td></tr>
+            <tr><td>SLOT-7</td><td>Rabindra Sangeet + Bengali Folk Sangeet</td><td>5 minutes</td><td>Debojyoti Dey & Team</td></tr>
+            <tr><td>SLOT-8</td><td>“Mon Vabonare” Dance Performance</td><td>4 minutes</td><td>Ditsa</td></tr>
+            <tr><td>SLOT-9</td><td>Group Dance</td><td>5 minutes</td><td>Shruti & Team</td></tr>
+            <tr><td>SLOT-10</td><td>Bengali Mashup</td><td>5 minutes</td><td>Debojyoti Dey & Team</td></tr>
+            <tr><td>SLOT-11</td><td>Group Dance</td><td>5 minutes</td><td>Ritika & Team</td></tr>
+            <tr><td>SLOT-12</td><td>Group Song</td><td>4 minutes</td><td>IT 3rd Year Boys (Abhishek Yadav & Team)</td></tr>
+            <tr><td>SLOT-13</td><td>Singing Performance</td><td>~3 minutes</td><td>Prof. Priyanka Rory</td></tr>
+            <tr><td>SLOT-14</td><td>Singing Performance</td><td>2 minutes</td><td>Prof. Moumita</td></tr>
+            <tr><td>SLOT-15</td><td>Bengali Recitation</td><td>3 minutes</td><td>Trymbika (IT, 2nd Year)</td></tr>
+            <tr><td>SLOT-16</td><td>Performance</td><td>4 minutes</td><td>IT 2nd Year Boys (“Classroom” & “Nil Rong Chilo Bhison Priyo”)</td></tr>
+            <tr><td>SLOT-17</td><td>Duet Dance</td><td>1 minute</td><td>Supriti & Mohak</td></tr>
+            <tr><td>SLOT-18</td><td>Boys Dance</td><td>4 minutes</td><td>IT 2nd Year Boys</td></tr>
+            <tr><td>SLOT-19</td><td>Group Dance</td><td>4 minutes</td><td>IT 3rd Year Group</td></tr>
+            <tr><td>SLOT-20</td><td>Bollywood Hindi Group Music</td><td>4 minutes</td><td>IT Girls</td></tr>
+            <tr><td>SLOT-21</td><td>Bollywood Hindi Group Music</td><td>4 minutes</td><td>IT 2nd Year Boys</td></tr>
+            <tr><td>SLOT-22</td><td>Boys Dance</td><td>4 minutes</td><td>IT 3rd Year Boys</td></tr>
+            <tr><td>SLOT-23</td><td>Cake Cutting Ceremony</td><td>~4 minutes</td><td>All Faculty & Students</td></tr>
+        </table>
+          </tbody>
+        </table>
+
+        <div class="spacer"></div>
+        <h3 style="margin:6px 0 0">Event Notes</h3>
+        
+<ul>
+  <li>✨ Let’s enjoy, make fun, and create unforgettable memories this<strong>Teachers’ Day 2K25</strong> with the IT Department (BCREC)! ✨ </li>
+  <li><strong>गुरुर्ब्रह्मा गुरुर्विष्णुः गुरुर्देवो महेश्वरः। गुरु साक्षात् परं ब्रह्म तस्मै श्रीगुरवे नमः॥</strong></li>
+  
+</ul>
+
+
+
+
+
+<h3>Feedback</h3>
+<textarea id="feedback" name="feedback" placeholder="Write your comments here..."></textarea>
+<br>
+<button type="submit" class="btn-submit">Submit Feedback</button>
+
+<style>
+  /* Star Rating */
+  .star-rating {
+    direction: rtl; /* makes stars go right → left */
+    display: inline-flex;
+    font-size: 35px;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  .star {
+    color: lightgray;
+    transition: color 0.3s, transform 0.2s;
+    margin: 0 5px;
+  }
+  .star:hover,
+  .star:hover ~ .star,
+  .star.selected {
+    color: gold;
+    transform: scale(1.2);
+  }
+
+  /* Feedback Box */
+  #feedback {
+    width: 100%;
+    max-width: 500px;
+    height: 120px;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    outline: none;
+    transition: all 0.3s ease;
+    resize: none;
+  }
+  #feedback:focus {
+    border-color: #f39c12;
+    box-shadow: 0 0 8px rgba(243, 156, 18, 0.5);
+  }
+
+  /* Submit Button */
+  .btn-submit {
+    background: #f39c12;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    margin-top: 12px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+  }
+  .btn-submit:hover {
+    background: #e67e22;
+    transform: translateY(-2px);
+  }
+</style>
+
+<script>
+    
+  const stars = document.querySelectorAll(".star-rating .star");
+  let selectedRating = 0;
+
+  stars.forEach(star => {
+    star.addEventListener("click", () => {
+      selectedRating = star.getAttribute("data-value");
+      stars.forEach(s => s.classList.remove("selected"));
+      for (let i = 0; i < selectedRating; i++) {
+        stars[i].classList.add("selected");
+      }
+      console.log("Rating selected:", selectedRating);
+    });
+  });
+</script>
+</form>
+      </div>
+    </section>
+
+    <footer>
+      <p>©️ 2025 Department of Information Technology, BCREC • Designed by Ritvik Raj (2023-27)</p>
+    </footer>
+  </div>
+
+  <script>
+    // Simple accessible tabs
+    const tabs = Array.from(document.querySelectorAll('.tab'));
+    const panels = Array.from(document.querySelectorAll('.tabpanel'));
+
+    function activate(id){
+      tabs.forEach(t => t.setAttribute('aria-selected', String(t.id === id)));
+      panels.forEach(p => p.classList.toggle('active', p.id === document.getElementById(id).getAttribute('aria-controls')));
+      document.getElementById(document.getElementById(id).getAttribute('aria-controls')).focus({preventScroll:true});
+    }
+
+    tabs.forEach(t => {
+      t.addEventListener('click', () => activate(t.id));
+      t.addEventListener('keydown', (e) => {
+        const i = tabs.indexOf(t);
+        if(e.key === 'ArrowRight'){
+          const next = tabs[(i+1)%tabs.length]; next.focus(); activate(next.id);
+        } else if(e.key === 'ArrowLeft'){
+          const prev = tabs[(i-1+tabs.length)%tabs.length]; prev.focus(); activate(prev.id);
+        }
+      });
+    });
+
+fetch("/api/events")
+  .then(res => res.json())
+  .then(events => {
+    let tbody = document.querySelector("#panel-events table tbody");
+    tbody.innerHTML = "";
+    events.forEach(e => {
+      tbody.innerHTML += `<tr><td>${e.slot}</td><td>${e.name}</td><td>${e.duration}</td><td>${e.incharge}</td></tr>`;
+    });
+  });
+
+
+    // Deep-link support (#events or #coordinators)
+    const hash = location.hash.replace('#','');
+    if(hash === 'events') activate('tab-events');
+    if(hash === 'coordinators') activate('tab-coords');
+  </script>
+</body>
+</html>
