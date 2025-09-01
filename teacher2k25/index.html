@@ -10,91 +10,132 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg: #0f172a;           /* slate-900 */
-      --card: #111827;         /* gray-900 */
-      --muted: #9ca3af;        /* gray-400 */
-      --text: #e5e7eb;         /* gray-200 */
-      --brand: #22c55e;        /* green-500 */
-      --brand-600:#16a34a;     /* green-600 */
+      --bg: #0f172a;
+      --card: #111827;
+      --muted: #9ca3af;
+      --text: #e5e7eb;
+      --brand: #22c55e;
+      --brand-600:#16a34a;
       --ring: rgba(34,197,94,0.3);
       --shadow: 0 10px 30px rgba(0,0,0,.4);
       --radius: 18px;
     }
+  
     *{box-sizing:border-box}
     html,body{height:100%}
+  
     body{
-      margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
       background: radial-gradient(1200px 1200px at 90% -10%, rgba(34,197,94,.07), transparent 60%),
                   radial-gradient(800px 800px at 0% 100%, rgba(34,197,94,.06), transparent 60%),
                   var(--bg);
       color:var(--text);
       line-height:1.6;
     }
+  
     .wrap{max-width:1100px; margin:0 auto; padding:28px 16px 80px}
+  
     header{
       display:grid; gap:14px; text-align:center; margin:24px 0 18px;
     }
-    .badge{display:inline-flex; align-items:center; gap:8px; padding:6px 12px; border-radius:999px; background:rgba(34,197,94,.12); color:#bbf7d0; border:1px solid rgba(34,197,94,.35); font-weight:600; font-size:13px; letter-spacing:.3px}
-    h1{font-size:clamp(28px, 4vw, 48px); line-height:1.08; margin:6px 0 8px; font-weight:800}
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:6px 12px; border-radius:999px;
+      background:rgba(34,197,94,.12); color:#bbf7d0;
+      border:1px solid rgba(34,197,94,.35);
+      font-weight:600; font-size:13px; letter-spacing:.3px
+    }
+    h1{
+      font-size:clamp(28px, 4vw, 48px); line-height:1.08;
+      margin:6px 0 8px; font-weight:800
+    }
     .sub{color:var(--muted); font-size:clamp(14px, 2.2vw, 18px)}
+  
     .card{
       background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
-      border:1px solid rgba(255,255,255,.08); border-radius:var(--radius);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:var(--radius);
       box-shadow:var(--shadow); overflow:hidden;
     }
+  
     .cta-row{display:flex; justify-content:center; gap:12px; margin-top:12px}
-    .btn{cursor:pointer; border:1px solid rgba(255,255,255,.14); background:#111827; color:var(--text); padding:10px 14px; border-radius:12px; font-weight:600}
-    .btn.brand{background:linear-gradient(90deg, var(--brand), var(--brand-600)); border-color:transparent; color:#052e16}
-    .btn:hover{transform:translateY(-1px)}
-
-    /* Tabs */
-    .tabs{margin-top:22px}
-    .tablist{display:flex; gap:8px; background:#0b1220; padding:8px; border-radius:14px; border:1px solid rgba(255,255,255,.08)}
-    .tab{
-      appearance:none; border:none; background:transparent; color:var(--muted); font-weight:700; padding:12px 16px; border-radius:12px; cursor:pointer;
+    .btn{
+      cursor:pointer; border:1px solid rgba(255,255,255,.14);
+      background:#111827; color:var(--text);
+      padding:10px 14px; border-radius:12px; font-weight:600
     }
-    .tab[aria-selected="true"]{background:rgba(34,197,94,.15); color:#dcfce7; outline:2px solid var(--ring)}
+    .btn.brand{
+      background:linear-gradient(90deg, var(--brand), var(--brand-600));
+      border-color:transparent; color:#052e16
+    }
+    .btn:hover{transform:translateY(-1px)}
+  
+    .tabs{margin-top:22px}
+    .tablist{
+      display:flex; gap:8px; background:#0b1220;
+      padding:8px; border-radius:14px;
+      border:1px solid rgba(255,255,255,.08)
+    }
+    .tab{
+      appearance:none; border:none; background:transparent;
+      color:var(--muted); font-weight:700;
+      padding:12px 16px; border-radius:12px; cursor:pointer;
+    }
+    .tab[aria-selected="true"]{
+      background:rgba(34,197,94,.15); color:#dcfce7;
+      outline:2px solid var(--ring)
+    }
     .tabpanel{display:none; padding:18px}
     .tabpanel.active{display:block}
-
-    /* Coordinator grid */
-    .grid{display:grid; gap:14px; grid-template-columns: repeat( auto-fit, minmax(240px, 1fr) ); margin-top:8px}
-    .person {
-    padding:16px;
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:14px;
-    background:#0b1220;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    word-wrap: break-word;       /* breaks long words */
-    overflow-wrap: break-word;   /* modern alternative */
-    word-break: break-word;      /* extra fallback */
+  
+    .grid{
+      display:grid; gap:14px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      margin-top:8px
     }
-
-    .person:hover {
-    transform: translateY(-6px); /* lift effect */
-    box-shadow: 0 12px 24px rgba(0,0,0,0.5),
-                0 0 12px rgba(34,197,94,0.3); /* glow */
-    border-color: rgba(34,197,94,0.6);        /* green border highlight */
+    .person{
+      padding:16px;
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:14px;
+      background:#0b1220;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      word-break: break-word;
     }
-
+    .person:hover{
+      transform: translateY(-6px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.5),
+                  0 0 12px rgba(34,197,94,0.3);
+      border-color: rgba(34,197,94,0.6);
+    }
     .person h3{margin:0 0 4px; font-size:18px}
-    .tag{display:inline-block; padding:4px 8px; border-radius:999px; font-size:12px; background:rgba(34,197,94,.12); color:#86efac; border:1px solid rgba(34,197,94,.35)}
+    .tag, .role{
+      display:inline-block; padding:4px 8px; border-radius:999px;
+      font-size:12px; background:rgba(34,197,94,.12);
+      color:#86efac; border:1px solid rgba(34,197,94,.35);
+      margin-bottom:8px;
+    }
     .muted{color:var(--muted); font-size:14px}
-
-    /* Table */
-    table{width:100%; border-collapse:separate; border-spacing:0; margin-top:10px; background:#0b1220; border:1px solid rgba(255,255,255,.08); border-radius:14px; overflow:hidden}
-    thead th{font-size:13px; text-transform:uppercase; letter-spacing:.08em; color:#a3e635; text-align:left; padding:12px 14px; background:#0f172a}
+  
+    table{
+      width:100%; border-collapse:separate; border-spacing:0; margin-top:10px;
+      background:#0b1220; border:1px solid rgba(255,255,255,.08);
+      border-radius:14px; overflow:hidden
+    }
+    thead th{
+      font-size:13px; text-transform:uppercase; letter-spacing:.08em;
+      color:#a3e635; text-align:left; padding:12px 14px; background:#0f172a
+    }
     tbody td{padding:12px 14px; border-top:1px solid rgba(255,255,255,.06)}
     tbody tr:hover{background:#0e1a2d}
-
-    /* Footer */
+  
     footer{margin-top:28px; color:var(--muted); text-align:center}
-
-    /* Utilities */
+  
     .sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}
     .spacer{height:18px}
-
-    /* Print */
+  
     @media print{
       body{background:white; color:#111827}
       .card, .tablist, .person, table{box-shadow:none; border-color:#e5e7eb}
@@ -102,12 +143,92 @@
       .tab[aria-selected="true"] + .tabpanel{display:block}
       .tabpanel{display:block}
     }
+
+   /* Feedback Section */
+.feedback-section {
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #111827; /* dark background */
+  border-radius: 12px;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.feedback-section h3 {
+  font-size: 1.5rem;
+  color: #f9fafb;
+  margin-bottom: 1rem;
+}
+
+/* Star Rating */
+.star-rating {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.star-rating .star {
+  font-size: 2rem;
+  color: #6b7280; /* gray stars */
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.star-rating .star:hover {
+  transform: scale(1.2);
+  color: #facc15; /* yellow on hover */
+}
+
+.star-rating .star.selected {
+  color: #fbbf24; /* gold when selected */
+}
+
+/* Feedback Textarea */
+.feedback-section textarea {
+  width: 100%;
+  min-height: 80px;
+  margin-top: 1rem;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  resize: none;
+  font-size: 1rem;
+  background: #1f2937;
+  color: #f9fafb;
+}
+
+.feedback-section textarea::placeholder {
+  color: #9ca3af;
+}
+
+/* Submit Button */
+.feedback-section .btn-submit {
+  margin-top: 1rem;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: #2563eb;
+  color: #fff;
+  transition: background 0.3s ease;
+}
+
+.feedback-section .btn-submit:hover {
+  background: #1d4ed8;
+}
+
+
   </style>
 </head>
 <body>
   <div class="wrap">
     <header class="card" style="padding:22px 18px">
-      <div class="badge" aria-label="Teachers' Day 2025 badge">🎓 Teachers' Day • 4 September 2025</div>
+      <div class="badge">🎓 Teachers' Day • 4 September 2025</div>
       <h1>Teacher's Day 2K25 <br>Department of Information Technology BCREC</h1>
       <p class="sub">Celebrating our mentors with gratitude, joy, and a dash of geeky fun ✨</p>
       <div class="cta-row">
@@ -117,68 +238,45 @@
     </header>
 
     <section id="tabs" class="tabs">
-      <div class="tablist" role="tablist" aria-label="Teachers' Day sections">
-        <button class="tab" role="tab" aria-selected="true" aria-controls="panel-coords" id="tab-coords">1. Coordinator List</button>
-        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-events" id="tab-events">2. Event List</button>
+      <div class="tablist">
+        <button class="tab" aria-selected="true" aria-controls="panel-coords" id="tab-coords">1. Coordinator List</button>
+        <button class="tab" aria-selected="false" aria-controls="panel-events" id="tab-events">2. Event List</button>
       </div>
 
       <!-- Coordinator Panel -->
-      <div id="panel-coords" class="tabpanel active card" role="tabpanel" aria-labelledby="tab-coords" tabindex="0">
-        <h2 style="margin:0 0 6px">Coordinator Team</h2>
+      <div id="panel-coords" class="tabpanel active card">
+        <h2>Coordinator Team</h2>
         <p class="muted">Core team for the IT Department Teachers' Day 2K25 celebration.</p>
-        <div class="grid" aria-label="Coordinator cards">
-          <article class="person" aria-label="Overall Coordinator">
-            <h3>Ritvik Raj</h3>
-            <span class="tag"> Coordinator</span>
-            <p class="muted">Email:ritvikraj1234567@gmail.com<br/>Phone:9097106894</p>
-          </article>
-          <article class="person" aria-label="Faculty Co-Lead">
-            <h3>Ritesh Kumar Mahato</h3>
-            <span class="tag">Coordinator</span>
-            <p class="muted">Email:riteshkumarmahato8@gmail.com<br/>Phone:9060861300</p>
-          </article>
-          <article class="person" aria-label="Student Lead, Curation">
-            <h3>Manisha Banerjee</h3>
-            <span class="tag">Girl Coordinator</span>
-            <p class="muted">Email:manisha123@gmail.com<br/>Phone:8391915172</p>
-          </article>
-          <article class="person" aria-label="Logistics & Stage">
-            <h3>Roshan Kumar Yadav</h3>
-            <span class="tag">Finanace Coordinator</span>
-            <p class="muted">Email:roshanyadav24slg@gmail.com<br/>Phone:9800384432</p>
-          </article>
-          <article class="person" aria-label="Student Lead, Curation">
-            <h3>Debjyoti Dey</h3>
-            <span class="tag">Cultural Coordinator</span>
-            <p class="muted">Email:debjyotidey127@gmail.com<br/>Phone:8331645172</p>
-          </article>
-            <!-- <h3>Aditya Mehta</h3>
-            <span class="tag">Hospitality</span>
-            <p class="muted">Email: aditya.mehta@college.edu<br/>Phone: +91-98XXXXXX05</p>
-          </article>
-          <article class="person" aria-label="Design & Media">
-            <h3>Neha Gupta</h3>
-            <span class="tag">Design & Media</span>
-            <p class="muted">Email: neha.gupta@college.edu<br/>Phone: +91-98XXXXXX06</p> -->
-          </article>
+        <div class="grid">
+          <article class="person"><h3>Ritvik Raj</h3><span class="tag">Coordinator</span><p class="muted">Email: ritvikraj1234567@gmail.com<br/>Phone: 9097106894</p></article>
+          <article class="person"><h3>Ritesh Kumar Mahato</h3><span class="tag">Coordinator</span><p class="muted">Email: riteshkumarmahato8@gmail.com<br/>Phone: 9060861300</p></article>
+          <article class="person"><h3>Manisha Banerjee</h3><span class="tag">Girl Coordinator</span><p class="muted">Email: manisha123@gmail.com<br/>Phone: 8391915172</p></article>
+          <article class="person"><h3>Roshan Kumar Yadav</h3><span class="tag">Finance Coordinator</span><p class="muted">Email: roshanyadav24slg@gmail.com<br/>Phone: 9800384432</p></article>
+          <article class="person"><h3>Debjyoti Dey</h3><span class="tag">Cultural Coordinator</span><p class="muted">Email: debjyotidey127@gmail.com<br/>Phone: 8331645172</p></article>
         </div>
 
-        <div class="spacer"></div>
-        <h3 style="margin:6px 0 0">Extended Coordinator List</h3>
-        <table aria-label="Coordinator table">
-          <thead>
-            <tr><th>Name</th><th>Role</th><th>Contact</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Abhijeet Kumar</td><td>Tresurer</td><td>harshita.j@college.edu • +91-6325147896</td></tr>
-           
-            <tr><td>Ankit Suman</td><td>Finanace</td><td>ankitsuman227@gmail.com • +91-9878459612</td></tr>
-            <tr><td>Dhiraj Kumar Saha</td><td>Finanace</td><td>dhirajkumarsaha@gmail.com • +91-9845123678</td></tr>
-            <tr><td>Anurag Singh</td><td>Food Distribution</td><td>anuragsingh145@gmail.com • +91-9845783678</td></tr>
-            <tr><td>Rezwana Khan Choudhary</td><td>Banner Invitation</td><td>khanrizwana123@gmail.com • +91-9845745678</td></tr>
-            <tr><td>Ritvik Jr.</td><td>Banner Invitaion</td><td>ritvikkr34@gmail.com • +91-9845823678</td></tr>
-          </tbody>
-        </table>
+        <h3>Extended Coordinators</h3>
+
+        <!-- Finance & Treasurer -->
+        <h4>Finance & Treasurer</h4>
+        <div class="grid">
+          <article class="person"><h3>Ankit Suman</h3><span class="role">Finance</span><p class="muted">Email: ankitsuman227@gmail.com<br/>Phone: +91-9878459612</p></article>
+          <article class="person"><h3>Dhiraj Kumar Saha</h3><span class="role">Finance</span><p class="muted">Email: dhirajkumarsaha@gmail.com<br/>Phone: +91-9845123678</p></article>
+          <article class="person"><h3>Abhijeet Kumar</h3><span class="role">Treasurer</span><p class="muted">Email: abhijeetsinha255@gmail.com<br/>Phone: +91-6321547896</p></article>
+        </div>
+
+        <!-- Food Coordinators -->
+        <h4>Food Coordinators</h4>
+        <div class="grid">
+          <article class="person"><h3>Anurag Singh</h3><span class="role">Food Distribution</span><p class="muted">Email: anuragsingh145@gmail.com<br/>Phone: +91-9845783678</p></article>
+        </div>
+
+        <!-- Banner & Invitation -->
+        <h4>Banner & Invitation</h4>
+        <div class="grid">
+          <article class="person"><h3>Rezwana Khan Choudhary</h3><span class="role">Banner & Invitation</span><p class="muted">Email: khanrizwana123@gmail.com<br/>Phone: +91-9845745678</p></article>
+          <article class="person"><h3>Ritvik Jr.</h3><span class="role">Banner & Invitation</span><p class="muted">Email: ritvikkr34@gmail.com<br/>Phone: +91-9845823678</p></article>
+        </div>
       </div>
 
       <!-- Event Panel -->
@@ -230,92 +328,30 @@
 
 
 
-<h3>Feedback</h3>
-<textarea id="feedback" name="feedback" placeholder="Write your comments here..."></textarea>
-<br>
-<button type="submit" class="btn-submit">Submit Feedback</button>
+<section class="feedback-section">
+  <h3>Feedback</h3>
 
-<style>
-  /* Star Rating */
-  .star-rating {
-    direction: rtl; /* makes stars go right → left */
-    display: inline-flex;
-    font-size: 35px;
-    cursor: pointer;
-    margin-bottom: 10px;
-  }
-  .star {
-    color: lightgray;
-    transition: color 0.3s, transform 0.2s;
-    margin: 0 5px;
-  }
-  .star:hover,
-  .star:hover ~ .star,
-  .star.selected {
-    color: gold;
-    transform: scale(1.2);
-  }
-
-  /* Feedback Box */
-  #feedback {
-    width: 100%;
-    max-width: 500px;
-    height: 120px;
-    padding: 12px;
-    font-size: 16px;
-    border: 2px solid #ccc;
-    border-radius: 12px;
-    outline: none;
-    transition: all 0.3s ease;
-    resize: none;
-  }
-  #feedback:focus {
-    border-color: #f39c12;
-    box-shadow: 0 0 8px rgba(243, 156, 18, 0.5);
-  }
-
-  /* Submit Button */
-  .btn-submit {
-    background: #f39c12;
-    color: white;
-    font-size: 16px;
-    padding: 10px 20px;
-    margin-top: 12px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.2s;
-  }
-  .btn-submit:hover {
-    background: #e67e22;
-    transform: translateY(-2px);
-  }
-</style>
-
-<script>
-    
-  const stars = document.querySelectorAll(".star-rating .star");
-  let selectedRating = 0;
-
-  stars.forEach(star => {
-    star.addEventListener("click", () => {
-      selectedRating = star.getAttribute("data-value");
-      stars.forEach(s => s.classList.remove("selected"));
-      for (let i = 0; i < selectedRating; i++) {
-        stars[i].classList.add("selected");
-      }
-      console.log("Rating selected:", selectedRating);
-    });
-  });
-</script>
-</form>
-      </div>
-    </section>
-
-    <footer>
-      <p>©️ 2025 Department of Information Technology, BCREC • Designed by Ritvik Raj (2023-27)</p>
-    </footer>
+  <!-- Star Rating -->
+  <div class="star-rating">
+    <span class="star" data-value="1">&#9733;</span>
+    <span class="star" data-value="2">&#9733;</span>
+    <span class="star" data-value="3">&#9733;</span>
+    <span class="star" data-value="4">&#9733;</span>
+    <span class="star" data-value="5">&#9733;</span>
   </div>
+
+  <!-- Feedback Textarea -->
+  <textarea id="feedback" name="feedback" placeholder="Write your comments here..."></textarea>
+  <br>
+
+  <!-- Submit Button -->
+  <button type="submit" class="btn-submit">Submit Feedback</button>
+</section>
+
+<footer>
+  <p>©️ 2025 Department of Information Technology, BCREC • Designed by Ritvik Raj (2023-27)</p>
+</footer>
+
 
   <script>
     // Simple accessible tabs
@@ -340,21 +376,68 @@
       });
     });
 
-fetch("/api/events")
-  .then(res => res.json())
-  .then(events => {
-    let tbody = document.querySelector("#panel-events table tbody");
-    tbody.innerHTML = "";
-    events.forEach(e => {
-      tbody.innerHTML += `<tr><td>${e.slot}</td><td>${e.name}</td><td>${e.duration}</td><td>${e.incharge}</td></tr>`;
-    });
-  });
-
-
     // Deep-link support (#events or #coordinators)
     const hash = location.hash.replace('#','');
     if(hash === 'events') activate('tab-events');
     if(hash === 'coordinators') activate('tab-coords');
-  </script>
+
+
+    //feedback script
+
+   
+      // Handle star rating
+      const stars = document.querySelectorAll(".star-rating .star");
+      let selectedRating = 0;
+      
+      stars.forEach(star => {
+        star.addEventListener("click", () => {
+          selectedRating = star.getAttribute("data-value");
+      
+          // reset all stars
+          stars.forEach(s => s.classList.remove("selected"));
+      
+          // highlight selected + previous stars
+          for (let i = 0; i < selectedRating; i++) {
+            stars[i].classList.add("selected");
+          }
+        });
+      });
+      
+      // Handle feedback form submit
+      const feedbackBtn = document.querySelector(".btn-submit");
+      
+      feedbackBtn.addEventListener("click", () => {
+        const feedbackText = document.getElementById("feedback").value.trim();
+      
+        if (selectedRating === 0) {
+          alert("⭐ Please select a star rating before submitting.");
+          return;
+        }
+        if (feedbackText === "") {
+          alert("✍️ Please write some feedback before submitting.");
+          return;
+        }
+      
+        // For now: show confirmation popup
+        alert(`✅ Thank you for your feedback!\n\nRating: ${selectedRating} Stars\nComment: ${feedbackText}`);
+      
+        // TODO: Send data to server or Google Sheets
+        // Example:
+        // fetch("/submit-feedback", {
+        //   method: "POST",
+        //   headers: { "Content-Type": "application/json" },
+        //   body: JSON.stringify({ rating: selectedRating, comment: feedbackText })
+        // });
+      
+        // Reset form
+        document.getElementById("feedback").value = "";
+        stars.forEach(s => s.classList.remove("selected"));
+        selectedRating = 0;
+      });
+      </script>
+      
+
+
+ 
 </body>
 </html>
